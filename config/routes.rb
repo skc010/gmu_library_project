@@ -1,4 +1,6 @@
 GmuLibraryProject::Application.routes.draw do
+  resources :users
+
   resources :authors
 
   resources :books

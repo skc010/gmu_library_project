@@ -19,7 +19,7 @@ tolkien = Author.where(name:'J. R. R. Tolkien')
                 	biography:"John Ronald Reuel Tolkien, CBE was an English writer, poet, 
                 	philologist, and university professor, best known as the author of the 
                 	classic high fantasy works The Hobbit, The Lord of the Rings, and The 
-                	Silmarillion.", image_url: 'http://en.wikipedia.org/wiki/J._R._R._Tolkien#mediaviewer/File:Tolkien_1916.jpg')
+                	Silmarillion.", image_url: 'http://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Tolkien_1916.jpg/320px-Tolkien_1916.jpg')
 Book.where(title:'The Lord of the Rings')
 	.first_or_create!(isbn:'9780544003415', abstract:'This is where the short summary for lord of the rings goes', 
 	pages:1216, genre:'fantasy', published_on:07/29/1954, total_in_library:2, author:tolkien)

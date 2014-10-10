@@ -9,6 +9,6 @@ class Book < ActiveRecord::Base
 	  numericality: {greater_than_or_equal_to: 0},
 	  unless: "total_in_library.blank?"
 
-	has_one :author
+	belongs_to :author
 	has_many :reservation
 end

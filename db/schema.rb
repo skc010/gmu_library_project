@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20141009234817) do
     t.date     "dob"
     t.string   "nationality"
     t.string   "awards"
-    t.string   "biograhpy"
+    t.string   "biography"
     t.string   "image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 20141009234817) do
     t.string   "user_id"
     t.string   "password_digest"
     t.boolean  "admin"
-    t.datetime "create_at"
     t.datetime "updated_at"
     t.datetime "created_at"
   end

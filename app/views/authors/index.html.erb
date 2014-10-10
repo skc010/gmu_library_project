@@ -1,0 +1,10 @@
+<h1>Authors</h1>
+
+
+	<ol>
+		<% @authors.each do |author| %>
+  			<li>
+  				<img src=<%= author.image_url %> alt='pricture'/><%= link_to(author.name, author) %>
+			</li>
+		<% end %>
+	</ol>

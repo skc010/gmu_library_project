@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20141009234817) do
 
   create_table "authors", force: true do |t|
@@ -47,7 +46,6 @@ ActiveRecord::Schema.define(version: 20141009234817) do
     t.integer  "user_id"
     t.integer  "book_id"
   end
-
 
   create_table "users", force: true do |t|
     t.string   "name"

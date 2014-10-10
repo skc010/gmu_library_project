@@ -11,11 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20141009233900) do
-=======
+
 ActiveRecord::Schema.define(version: 20141009234817) do
->>>>>>> 33d375dcc750505b48aaf4abb313a955006e3172
 
   create_table "authors", force: true do |t|
     t.string   "name"
@@ -42,8 +39,6 @@ ActiveRecord::Schema.define(version: 20141009234817) do
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
-=======
   create_table "reservations", force: true do |t|
     t.date     "reserved_on"
     t.date     "due_on"
@@ -53,16 +48,12 @@ ActiveRecord::Schema.define(version: 20141009234817) do
     t.integer  "book_id"
   end
 
->>>>>>> 33d375dcc750505b48aaf4abb313a955006e3172
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "user_id"
     t.string   "password_digest"
     t.boolean  "admin"
-<<<<<<< HEAD
-    t.datetime "create_at"
-=======
->>>>>>> 33d375dcc750505b48aaf4abb313a955006e3172
     t.datetime "updated_at"
     t.datetime "created_at"
   end

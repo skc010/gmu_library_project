@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :set_user, only[:show, :edit, :update, :destory]
+	before_action :set_user, only:[:show, :edit, :update, :destory]
 	def index 
 		@users = User.order('name desc')
 	end
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
 	def update
 		if @user.update(user_params)
-			redirct_to @user, notice: "#{@user.name} was updated!"
+			redirect_to @user, notice: "#{@user.name} was updated!"
 		else
 			render :new
 		end
@@ -43,7 +43,7 @@ private
 	end
 
 	def set_user
-		@user = User.find(params[:user_id])
+		@user = User.find(params[:id])
 	end
 
 end

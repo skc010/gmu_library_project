@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
-	has_many :reservation
-  has_secure_password
+	validates :name, :user_id, presence: true
+	has_many :reservations
+  	has_secure_password
 end

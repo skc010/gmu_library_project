@@ -1,0 +1,10 @@
+<%= form_for(@user) do |f| %>
+	<%= render 'shared/validation_errors', object: @user %>
+	<%= f.label :name %> <%= f.text_field :name, autofocus:true %><br/>
+	<%= f.label :user_id %> <%= f.text_field :user_id %><br/>
+	<%= f.label :admin %> <%= f.check_box :admin %><br/>
+	<%= f.label :password_digest %> <%= f.text_field :password_digest %><br/>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>

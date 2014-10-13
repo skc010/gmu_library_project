@@ -1,0 +1,20 @@
+<h1>List of Users</h1>
+
+ <div class="divTable">
+         <div class="headRow">
+            <div class="divCell" align="center">Name</div>
+            <div class="divCell">User ID</div>
+            <div class="divCell">Is An Admin</div>
+            <div class="divCell">Updated</div>
+            <div class="divCell">Created</div>
+         </div>
+        <% @users.each do |user| %>
+        <div class="divRow">
+            <div class="divCell"><%= link_to(user.name, user) %></div>
+            <div class="divCell"><%= user.user_id %></div>
+            <div class="divCell"><%= user.admin %></div>
+            <div class="divCell"><%= time_ago_in_words(user.updated_at) %></div>
+            <div class="divCell"><%= time_ago_in_words(user.created_at) %></div>
+        </div>
+ 		<% end %>
+  </div>

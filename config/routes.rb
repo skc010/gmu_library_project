@@ -1,14 +1,31 @@
 GmuLibraryProject::Application.routes.draw do
-  #match '/signup', :to => 'users#new'
-  #match 'signin', :to => 'sessions#new'
-  #match 'signout', :to => 'sessions#destroy'
+  resources :authors, :reservations, :users
+  resources :books do
+    get 'page/:page', :action => :index, :on => :collection
+  end
 
-  resources :users
+  get 'admin' => "admin#index"
 
-  resources :authors
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+  
+  get "sessions/create"
+  get "sessions/destroy"
 
-  resources :books
-  root 'books#index'
+  resources :users do 
+    resources :reservations
+  end
+
+  resources :books do
+    get 'page/:page', :action => :index, :on => :collection
+  end
+
+  get "reservations/overdue"
+
+  root 'sessions#new' 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -6,6 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.where(name: 'tester').first_or_create(name: 'tester', user_id: 'tester', password: 'password', password_confirmation: 'password', admin: false)
+User.where(name: 'admin').first_or_create(name: 'admin', user_id: 'admin', password: 'password', password_confirmation: 'password', admin: true)
+
+
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -32,7 +37,4 @@
 
 # Book.create(isbn:'9780544003415',title:'The Lord of the Rings', abstract:"This is where the short summary for lord of the rings goes",
 # 	pages:1216, genre:'fantasy', published_on:Time.parse('29-07-1954'), total_in_library:2, author:tolkien)
-
-User.create(name: 'tester', user_id: 'tester_id', password_digest: 'password', admin: false)
-User.create(name: 'admin', user_id: 'admin_id', password_digest: 'password', admin: true)
 

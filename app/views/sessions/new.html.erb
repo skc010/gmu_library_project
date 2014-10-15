@@ -1,17 +1,23 @@
-<h1>Sign in</h1>
-
-<%= form_for(:session, :url => sessions_path) do |f| %>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Sign in" %>
-  </div>
-<% end %>
-
-<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+<div class="login_form">
+  <% if flash[:alert] %>
+    <p id="notice"><%= flash[:alert] %></p>
+  <% end %>
+  <%= form_tag do %>
+    <fieldset>
+      <legend>Please Log In</legend>
+      <div class="login-area">
+        <p>
+          <%= label_tag :name %>
+          <%= text_field_tag :name, params[:name] %>
+        </p>
+        <p>
+          <%= label_tag :password %>
+          <%= password_field_tag :password, params[:password] %>
+        </p>
+        <p>
+          <%= submit_tag "Login", :class => "btn btn-primary" %>
+        </p>
+      </div>
+    </fieldset>
+  <% end %>
+</div>

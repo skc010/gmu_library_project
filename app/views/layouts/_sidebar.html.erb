@@ -1,10 +1,20 @@
 <% if session[:user_id] %>
+<style>
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    background-color: #b0e0e6;
+}
+</style>
+
 <div id="sidebar">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h3 class="panel-title">Navigation</h3>
 		</div>
-		<div class="panel-body">
+		<div class="btn-group-vertical">
+		
 		    <%= link_to(books_path, class: "btn btn-default btn-small") do %>
             	<i class="glyphicon glyphicon-list"></i> All Books
           	<% end %>
@@ -19,7 +29,7 @@
 			
 			<% if session[:is_admin] %>
 				<br />
-	          	<%= link_to(new_book_path, class: "btn btn-default btn-small") do %>
+	          	<%= link_to(new_book_path, class: "btn btn-default btn-small" ) do %>
 	            	<i class="glyphicon glyphicon-book"></i> New Book
 	          	<% end %>
 	          	<br />

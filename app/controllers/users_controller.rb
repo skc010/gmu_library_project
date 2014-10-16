@@ -20,7 +20,7 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
     if @user.save
       redirect_to users_url, notice: "User #{@user.name} was successfully created." 
     else
-      format.html { render action: 'new' }
+      render action: 'new'
     end
   end
 

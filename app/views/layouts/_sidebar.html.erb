@@ -1,3 +1,4 @@
+<% if session[:user_id] %>
 <div id="sidebar">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
@@ -6,13 +7,16 @@
 		<div class="panel-body">
 			<p><%= link_to "All Books", books_path %></p>
 			<p><%= link_to "Authors", authors_path %></p>
-			<p><%= link_to "Users", users_path %></p>
 			<p><%= link_to "My Reservations", authors_path %></p>
-			<p><%= link_to "New Book", new_book_path %>
-			<p><%= link_to "Create Author", new_author_path %></p>
-			<p><%= link_to "Create User", new_user_path %></p>
-			<p><%= link_to "Overdue Books", new_book_path %>
+			
+			<% if session[:is_admin] %>
+				<p><%= link_to "New Book", new_book_path %>
+				<p><%= link_to "Overdue Books", new_book_path %>
+				<p><%= link_to "Users", users_path %></p>
+			<% end %>
+			
 			<p><%= link_to "Logout", authors_path %></p>
 		</div>
 	</div>
 </div>
+<% end %>

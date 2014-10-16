@@ -20,7 +20,7 @@ before_action :set_book, only: [:show, :edit, :update, :destroy]
 		if @book.save
 			redirect_to books_url, notice: "Book #{@book.title} was successfully created." 
 		else
-			render action : 'new'
+			render action: 'new'
 		end
 	end
 

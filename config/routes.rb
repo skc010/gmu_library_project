@@ -16,8 +16,10 @@ GmuLibraryProject::Application.routes.draw do
   get "sessions/destroy"
 
   resources :users do 
+     get 'page/:page', :action => :index, :on => :collection
     resources :reservations
   end
+
 
   resources :books do
     get 'page/:page', :action => :index, :on => :collection

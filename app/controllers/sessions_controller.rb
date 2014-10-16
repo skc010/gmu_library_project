@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    ession[:is_admin] = nil
+    session[:is_admin] = nil
     flash[:success] ="Logged Out"
     redirect_to login_url
   end

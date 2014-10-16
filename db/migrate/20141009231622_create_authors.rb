@@ -5,7 +5,7 @@ class CreateAuthors < ActiveRecord::Migration
       t.date :dob
       t.string :nationality
       t.string :awards
-      t.string :biograhpy
+      t.string :biography
       t.string :image_url
 
       t.timestamps

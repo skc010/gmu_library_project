@@ -13,6 +13,11 @@ class AuthorsController < ApplicationController
 		@author = Author.new
 	end
 
+	def update
+		@author.update(author_params)
+		redirect_to(@author)
+	end
+
 	def create
 		@author = Author.new(author_params)
 		if @author.save
@@ -24,6 +29,11 @@ class AuthorsController < ApplicationController
 
 	def edit
 		
+	end
+
+	def destroy
+		@author.destroy
+		redirect_to(authors_url)
 	end
 
 	private

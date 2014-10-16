@@ -21,11 +21,11 @@
         <td><%= user.admin %></td>
         <td><%= time_ago_in_words(user.updated_at) %></td>         
         <td>
-          <%= link_to(user_path(user)) do %>
-           Details
+          <%= link_to(user_path(user), class: "btn btn-default btn-small") do %>
+           Details <i class="glyphicon glyphicon-list-alt"></i>
           <% end %>
-          <%= link_to(edit_user_path(user)) do %>
-            Edit
+          <%= link_to(edit_user_path(user), class: "btn btn-default btn-small") do %>
+            Edit <i class="glyphicon glyphicon-edit"></i>
           <% end %>
         </td>
       </tr>
@@ -35,9 +35,10 @@
 <%= paginate @users %>
 
 <br />
-<div class="contextual">
-  <%= link_to(new_user_path, class: "btn btn-success") do %>
-    New User 
-  <% end %>
-</div>
+
+  <div class="contextual">
+    <%= link_to(new_user_path, class: "btn btn-success") do %>
+      New User <i class="icon-plus icon-white"></i>
+    <% end %>
+  </div>
   <br />

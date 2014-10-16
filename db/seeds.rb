@@ -6,8 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.where(name: 'tester').first_or_create(name: 'tester', user_id: 'tester', password: 'password', password_confirmation: 'password', admin: false)
-User.where(name: 'admin').first_or_create(name: 'admin', user_id: 'admin', password: 'password', password_confirmation: 'password', admin: true)
+User.where(name: 'tester').first_or_create(name: 'tester', user_id: 'tester_id', password: 'password', password_confirmation: 'password', admin: false)
+User.where(name: 'admin').first_or_create(name: 'admin', user_id: 'admin_id', password: 'password', password_confirmation: 'password', admin: true)
+User.where(name: 'user').first_or_create(name: 'user', user_id: 'user_id', password: 'password', password_confirmation: 'password', admin: false)
+User.where(name: 'boss').first_or_create(name: 'boss', user_id: 'boss_id', password: 'password', password_confirmation: 'password', admin: true)
+User.where(name: 'ceo').first_or_create(name: 'ceo', user_id: 'ceo_id', password: 'password', password_confirmation: 'password', admin: true)
+User.where(name: 'developer').first_or_create(name: 'developer', user_id: 'developer_id', password: 'password', password_confirmation: 'password', admin: false)
 
 
 

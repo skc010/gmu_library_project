@@ -10,16 +10,14 @@ class SessionsController < ApplicationController
       session[:is_admin] = user.admin
       redirect_to books_path
     else
-      flash[:danger] ="Invalid User/Password Combination"
-      redirect_to login_url
+      redirect_to login_url, notice: "Login Failed"
     end
   end
 
   def destroy
     session[:user_id] = nil
     session[:is_admin] = nil
-    flash[:success] ="Logged Out"
-    redirect_to login_url
+    redirect_to login_url, notice: "Logged Out"
   end
 end
 

@@ -5,17 +5,36 @@
 			<h3 class="panel-title">Navigation</h3>
 		</div>
 		<div class="panel-body">
-			<p><%= link_to "All Books", books_path %></p>
-			<p><%= link_to "Authors", authors_path %></p>
-			<p><%= link_to "My Reservations", authors_path %></p>
+		    <%= link_to(books_path, class: "btn btn-default btn-small") do %>
+            	<i class="glyphicon glyphicon-list"></i> All Books
+          	<% end %>
+          	<br />
+		    <%= link_to(authors_path, class: "btn btn-default btn-small") do %>
+            	<i class="glyphicon glyphicon-user"></i> Authors
+          	<% end %>
+          	<br />
+          	<%= link_to(authors_path, class: "btn btn-default btn-small") do %>
+            	<i class="glyphicon glyphicon-tasks"></i> My Reservations
+          	<% end %>
 			
 			<% if session[:is_admin] %>
-				<p><%= link_to "New Book", new_book_path %>
-				<p><%= link_to "Overdue Books", new_book_path %>
-				<p><%= link_to "Users", users_path %></p>
+				<br />
+	          	<%= link_to(new_book_path, class: "btn btn-default btn-small") do %>
+	            	<i class="glyphicon glyphicon-book"></i> New Book
+	          	<% end %>
+	          	<br />
+	          	<%= link_to(new_book_path, class: "btn btn-default btn-small") do %>
+	            	<i class="glyphicon glyphicon-download-alt"></i> Overdue Books
+	          	<% end %>
+	          	<br />
+	          	<%= link_to(users_path, class: "btn btn-default btn-small") do %>
+	            	<i class="glyphicon glyphicon-user"></i> Users
+	          	<% end %>
 			<% end %>
-			
-			<p><%= link_to "Logout", sessions_destroy_path %></p>
+			<br />
+			<%= link_to(sessions_destroy_path, class: "btn btn-default btn-small") do %>
+	           	<i class="glyphicon glyphicon-off"></i> Logout
+	       	<% end %>
 		</div>
 	</div>
 </div>

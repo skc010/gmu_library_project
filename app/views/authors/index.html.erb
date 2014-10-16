@@ -1,6 +1,6 @@
 <h1>Authors</h1>
 
-
+	<%= page_entries_info @authors %>
 	<ul>
 		<% @authors.each do |author| %>
   			<li>
@@ -8,3 +8,7 @@
 			</li>
 		<% end %>
 	</ul>
+	<% if session[:is_admin] %>
+		<%= link_to('New Author', new_author_path) %> 
+	<% end %>
+	<%= paginate @authors %>

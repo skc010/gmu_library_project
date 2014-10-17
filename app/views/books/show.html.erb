@@ -1,0 +1,24 @@
+<% content_for :title, @book.title %>
+<article class="book">
+	<header>
+		<h2><%= @book.title %></h2>
+	</header>
+	<p>
+	<%=  image_tag @book.image_cover_url %>
+	<%= @book.abstract %> <br />
+
+	<br />
+	Details 
+	<br />
+	ISBN <%=  @book.isbn %> <br />
+	Author <%= link_to @book.author.name, author_path(@book.author) %><br />
+	Genre <%= @book.genre %> <br />
+	Pages <%= @book.pages %> <br />
+	Published On <%= @book.published_on %> <br />
+
+<%= link_to 'Edit', edit_book_path(@book) %>
+<%= button_to 'Delete', @book, method: :delete, data: {confirm:'Are you sure?'} %>
+<%= link_to 'Reservation', new_reservation_path(@book) %>
+
+
+</article>

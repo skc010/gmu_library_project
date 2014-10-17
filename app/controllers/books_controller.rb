@@ -26,7 +26,7 @@ before_action :set_book, only: [:show, :edit, :update, :destroy]
 
 	def update
 		if @book.update(book_params)
-			redirect_to books_url, notice: "Book #{@ook.title} was successfully updated."
+			redirect_to books_url, notice: "Book #{@book.title} was successfully updated."
 		else
 			render action: 'edit'
 		end

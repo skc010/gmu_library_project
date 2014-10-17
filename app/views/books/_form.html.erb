@@ -1,9 +1,8 @@
 <%= form_for(@book) do |f| %>
 	<%= render 'shared/validation_errors', object: @book %>
-	<%= f.label :title %><%= f.text_field :title %><br/>
-	<%= f.label :author_id %>
 
-	<br/>
+	<%= f.label :title %><%= f.text_field :title %><br/>
+	<%= f.label :author_id %> <%= f.select :author_id, get_authors %><br/>
 	<%= f.label :isbn %> <%= f.text_field :isbn %> <br/><br/>
 	<%= f.label :abstract %><%= f.text_area :abstract %><br/>
 	<%= f.label :pages %> <%= f.text_field :pages %> <br/>

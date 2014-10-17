@@ -38,6 +38,9 @@ before_action :set_book, only: [:show, :edit, :update, :destroy]
 		end
 	end
 
+	def get_authors 
+		@author_list = Author.all
+	end
 
 private
     def set_book
@@ -45,7 +48,7 @@ private
     end
 
     def book_params
-    	params.require(:title).permit(:isbn ,:author_id, :genre,  :genre, :abstract, :pages, :image_cover_url, :published_on, :total_in_library)
+    	params.require(:book).permit(:title, :isbn ,:author_id, :genre, :abstract, :pages, :image_cover_url, :published_on, :total_in_library)
     end
 
 

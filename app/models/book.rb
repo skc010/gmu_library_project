@@ -7,7 +7,7 @@ class Book < ActiveRecord::Base
 	  numericality: {only_integer: true, greater_than_or_equal_to: 0},
 	  unless: "pages.blank?"
 	validates :total_in_library,
-	  numericality: {nly_integer: true, greater_than_or_equal_to: 0},
+	  numericality: {only_integer: true, greater_than_or_equal_to: 0},
 	  unless: "total_in_library.blank?"
 
 	belongs_to :author

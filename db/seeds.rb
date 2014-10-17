@@ -39,6 +39,12 @@ Book.where(isbn:'9780544003415')
 Book.where(isbn:'0553091867')
 	.first_or_create!(title:'The Last Command', abstract:'The epic conclusion to the Thrawn Triology', 
 	pages:407, genre:'science-fiction', image_cover_url: 'http://www.saltmanz.com/pictures/albums/Cover%20Scans/Book%20Covers/Last%20Command.jpg', published_on:Time.parse('05-01-1993'), total_in_library:7, author:zahn)
+Book.where(isbn:'0553073273')
+	.first_or_create!(title:'Heir to the Empire', abstract:'The epic beginning to the Thrawn Triology', 
+	pages:361, genre:'science-fiction', image_cover_url: 'http://img1.wikia.nocookie.net/__cb20050709075915/starwars/images/4/40/Heirtotheempire.jpg', published_on:Time.parse('06-01-1991'), total_in_library:9, author:zahn)
+Book.where(isbn:'0553085743')
+	.first_or_create!(title:'Dark Force Rising', abstract:'The epic second act in the Thrawn Triology', 
+	pages:376, genre:'science-fiction', image_cover_url: 'http://img1.wikia.nocookie.net/__cb20110127115357/starwars/images/6/66/Darkforcerising.jpg', published_on:Time.parse('06-01-1992'), total_in_library:4, author:zahn)
 
 
 

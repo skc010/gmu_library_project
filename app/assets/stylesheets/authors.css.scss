@@ -7,6 +7,11 @@ img.all_authors {
 	height: 100px;
 }
 
+img.all_books {
+	width: 75px;
+	height: 100px;
+}
+
 img.single_author {
 	width: 200px;
 	height: 200px;
@@ -16,4 +21,8 @@ ul.book_ul, ul.authors_ul{
 	list-style-type:none;
 	padding-left:0;
 
+	li {
+		padding:3px;
+	}
 }
+

@@ -16,7 +16,7 @@
 	<ul class='book_ul'>
 		<% @publications.each do |publication| %>
   			<li>
-  				<img class='all_authors' src=<%= publication.image_cover_url %> alt='picture'/><%= link_to(publication.title, publication) %>
+  				<img class='all_books' src=<%= publication.image_cover_url %> alt='picture'/><%= link_to(publication.title, publication) %>
 			</li>
 		<% end %>
 	</ul>

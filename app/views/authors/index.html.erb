@@ -1,7 +1,7 @@
 <h1>Authors</h1>
 
 	<%= page_entries_info @authors %>
-	<ul>
+	<ul class='authors_ul'>
 		<% @authors.each do |author| %>
   			<li>
   				<img class='all_authors' src=<%= author.image_url %> alt='picture'/><%= link_to(author.name, author) %>

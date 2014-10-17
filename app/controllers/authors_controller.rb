@@ -6,7 +6,7 @@ class AuthorsController < ApplicationController
 	end
 
 	def show
-
+		@publications = @author.books.order(:title).page(params[:page])
 	end
 
 	def new

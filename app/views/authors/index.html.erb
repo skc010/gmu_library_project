@@ -4,7 +4,7 @@
 	<ul>
 		<% @authors.each do |author| %>
   			<li>
-  				<img src=<%= author.image_url %> alt='pricture'/><%= link_to(author.name, author) %>
+  				<img class='all_authors' src=<%= author.image_url %> alt='picture'/><%= link_to(author.name, author) %>
 			</li>
 		<% end %>
 	</ul>

@@ -2,11 +2,25 @@
 	<header>
 		<h2><%= @author.name %></h2>
 	</header>
+
+	<img class='single_author' src=<%= @author.image_url %> alt='picture'/><p><label>Biography</label> <%= @author.biography %></p>
+
+	<h3>Details</h3>
 	<p><label>DOB: </label><%= @author.dob %></p>
 	<p><label>Nationality: </label><%= @author.nationality %></p>
 	<p><label>Awards: </label><%= @author.awards %></p>
 
-	<p><label>Biography</label> <%= @author.biography %></p>
+	<h3>Publications</h3>
+
+	<%= page_entries_info @publications %>
+	<ul>
+		<% @publications.each do |publication| %>
+  			<li>
+  				<img class='all_authors' src=<%= publication.image_cover_url %> alt='picture'/><%= link_to(publication.title, publication) %>
+			</li>
+		<% end %>
+	</ul>
+	<%= paginate @publications %>
 </article>
 
 <%= link_to("All authors", authors_path) %> 

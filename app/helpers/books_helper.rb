@@ -10,4 +10,17 @@ module BooksHelper
 		end
 		return list_authors
 	end
+
+	def reserve?(book)
+		total_available = book.total_in_library - book.reservations.size
+		total_available > 0
+	end
+
+	def available_to_reserve(book)
+  		available_to_reserve = book.total_in_library - book.reservations.size
+  	end
+
+
+
+
 end

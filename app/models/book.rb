@@ -11,5 +11,5 @@ class Book < ActiveRecord::Base
 	  unless: "total_in_library.blank?"
 
 	belongs_to :author
-	has_many :reservation
+	has_many :reservation, dependent: :destroy
 end

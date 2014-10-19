@@ -3,21 +3,25 @@
 	<header>
 		<h2><%= @book.title %></h2>
 	</header>
-	<p>
+
 	<%=  image_tag @book.image_cover_url %>
-	<%= @book.abstract %> <br />
 
-	<br />
-	Details 
-	<br />
-	ISBN <%=  @book.isbn %> <br />
-	Author <%= link_to @book.author.name, author_path(@book.author) %><br />
-	Genre <%= @book.genre %> <br />
-	Pages <%= @book.pages %> <br />
-	Published On <%= @book.published_on %> <br />
+	<p> <%= @book.abstract %> </p>
 
-<%= link_to 'Edit', edit_book_path(@book) %>
-<%= button_to 'Delete', @book, method: :delete, data: {confirm:'Are you sure?'} %>
+	Details
+	<p><label>ISBN:</label> <%= @book.isbn %></p>
+	<p><label>Author:</label> <%= link_to @book.author.name, author_path(@book.author) %></p>
+	<p><label>Genre:</label> <%= @book.genre %></p>
+	<p><label>Pages:</label> <%= @book.pages %></p>
+	<p><label>Published On</label> <%= @book.published_on %></p>
+	<p><label>Available to Reserve:</label> <%= @available_to_reserve %></p>
+</article>
+
+<% if session[:is_admin] %>
+	<%= button_to 'Edit', edit_book_path(@book) %>
+	<%= button_to 'Delete', @book, method: :delete, data: {confirm:'Are you sure?'} %>
+<% end %>
+
 <%= link_to 'Reservation', new_reservation_path(@book) %>
 
 

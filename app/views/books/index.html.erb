@@ -3,7 +3,9 @@
 <ol>
 	<% @books.each do |book| %>
       <li>
-       <%= link_to(book.title, book) %> by <%= book.author %>
+      	<img class='all_books' src=<%= book.image_cover_url %> alt='cover'/> <%= link_to(book.title, book) %> by 
+      	<%= book.author.name %> 
+
       </li>
 
 	<% end %>

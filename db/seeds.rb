@@ -23,6 +23,13 @@ User.where(name: 'developer').first_or_create(name: 'developer', user_id: 'devel
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+shakespeare = Author.where(name:'William Shakespeare')
+                .first_or_create!(dob:Time.parse('26-04-1564'), nationality:'British', 
+                	biography:"Shakespeare was a prolific English playwright and poet.", awards: 'None', image_url: 'http://www.solarnavigator.net/books/books_images/William_Shakespeare.jpg')
+Book.where(isbn:'9780745011004')
+	.first_or_create!(title:'Hamlet', abstract:'Another tragedy by Shakespeare so sad', 
+	pages:407, genre:'tradegy', image_cover_url: 'http://missriki.com/wp-content/uploads/2013/09/hamlet.jpg', published_on:Time.parse('01-01-1603'), total_in_library:0, author:shakespeare)
+
 tolkien = Author.where(name:'J. R. R. Tolkien')
                 .first_or_create!(dob:Time.parse('03-01-1892'), nationality:'British', 
                 	biography:"John Ronald Reuel Tolkien, CBE was an English writer, poet, 
@@ -32,8 +39,12 @@ tolkien = Author.where(name:'J. R. R. Tolkien')
 Book.where(isbn:'9780544003415')
 	.first_or_create!(title:'The Lord of the Rings', abstract:'This is where the short summary for lord of the rings goes', 
 	pages:1216, genre:'fantasy', image_cover_url:'http://2.bp.blogspot.com/-iVwMbMPsAK4/TmyFH-MLXsI/AAAAAAAABwU/9RW48qLcroc/s1600/the-lord-of-the-rings-the-fellowship-of-the-ring.jpg',  published_on:Time.parse('29-07-1954'), total_in_library:2, author:tolkien)
+Book.where(isbn:'9780582186552')
+	.first_or_create!(title:'The Hobbit', abstract:'This is where the short summary for The Hobbit goes', 
+	pages:1216, genre:'fantasy', image_cover_url:'http://img1.wikia.nocookie.net/__cb20130704001522/lotr/images/9/94/The-hobbit-book-cover1.jpg',  published_on:Time.parse('21-09-1937'), total_in_library:0, author:tolkien)
 
-	zahn = Author.where(name:'Timothy Zahn')
+
+zahn = Author.where(name:'Timothy Zahn')
                 .first_or_create!(dob:Time.parse('09-01-1951'), nationality:'American', 
                 	biography:"Timothy Zahn is a writer of science fiction short stories and novels. His novella Cascade Point won the 1984 Hugo Award.", awards: '1984 Hugo Award', image_url: 'http://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/10.12.12TimothyZahnByLuigiNovi3.jpg/640px-10.12.12TimothyZahnByLuigiNovi3.jpg')
 Book.where(isbn:'0553091867')

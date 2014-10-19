@@ -1,5 +1,5 @@
 class Book < ActiveRecord::Base
-	GENRES = ['science-fiction', 'fiction', 'non-fiction', 'fantasy', 'romance', 'classics']
+	GENRES = ['science-fiction', 'fiction', 'non-fiction', 'fantasy', 'romance', 'classics', 'tradegy']
 	validates :isbn, :title, :abstract, :pages, :genre, :published_on, :total_in_library, :author, presence: true 
 	validates :genre, inclusion: { in: GENRES}
 	validates :abstract, length: {minimum: 15} 

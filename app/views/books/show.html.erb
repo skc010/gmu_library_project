@@ -4,11 +4,11 @@
 		<h2><%= @book.title %></h2>
 	</header>
 
-	<%=  image_tag @book.image_cover_url %>
+	<%=  image_tag @book.image_cover_url, :class =>'all_books' %>
 
 	<p> <%= @book.abstract %> </p>
 
-	Details
+	<div class="details">Details</div>
 	<p><label>ISBN:</label> <%= @book.isbn %></p>
 	<p><label>Author:</label> <%= link_to @book.author.name, author_path(@book.author) %></p>
 	<p><label>Genre:</label> <%= @book.genre %></p>
@@ -32,14 +32,6 @@
 <% else %>
 	This book is not currently available.
 <% end %>
-
-
-
-
-
-
-
-<%= link_to 'Reservation', new_reservation_path(@book) %>
 
 
 </article>

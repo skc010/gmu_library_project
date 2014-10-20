@@ -1,0 +1,17 @@
+<h1>My Reservations</h1>
+
+<ol>
+<% @reservations.each do |reservation| %>
+	<li>
+		<%= image_tag reservation.book.image_cover_url, :class =>'all_books' %>
+		<%= reservation.book.title %>
+
+		 Reserved - <%= reservation.reserved_on.to_s(:short) %> 
+		 Due - <%= reservation.due_on.to_s(:short) %>
+
+		   <%= button_to 'Return book', reservations_path_destory(reservation) , 
+                 data: {confirm: 'Are you sure?' } %>
+	</li>
+	<% end %>
+</ol>
+

@@ -8,14 +8,9 @@ before_action :set_book, only: [:create]
     @reservations = @user.reservations.order('created_at desc')
   end
 
-  def overdue
-   @overdueset = Reservation.where( "due_on < ?", Time.zone.now  )
-  end
-
   def show
-   @overdueset = Reservation.where( "due_on < ?", Time.zone.now ).order(:user_id)
+   @overdue_reservations = Reservation.where( "due_on < ?", Time.zone.now  )
   end
-
 
   def destroy
     Reservation.find( params[ :reservation_id] ).delete
@@ -26,7 +21,7 @@ before_action :set_book, only: [:create]
 
   def create
     today = Time.zone.now
-    tomorrow = today + 7.days
+    tomorrow = today + 1.days
 
     @reservation = @book.reservations.new( book_id: params[:book_id], user_id: session[:user_id],reserved_on: today, due_on: tomorrow )
 

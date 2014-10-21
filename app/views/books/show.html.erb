@@ -25,10 +25,12 @@
 
 
 
-<% if reserve?(@book) %>
-     <p><%= button_to 'Reserve', new_reservation_path(@book), class:"btn btn-primary" %></p>
-<% elsif  @book.reservations %>
-	<p class="bg-info">You currently have this book checked out.</p>
+<% if  you_currently_checked_out_book?(@book) %>
+	You currently have this book checked out
+
+<% elsif reserve?(@book) %>
+	<p><%= button_to 'Reserve', reservations_path(book_id: @book), class:"btn btn-primary" %></p>
+
 <% else %>
 	This book is not currently available.
 <% end %>

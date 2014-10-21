@@ -1,49 +1,49 @@
 class ReservationsController < ApplicationController
-	before_action :set_reservation, only: [:destroy]
-	def new
-		@reservation = Reservation.new
-	end
 
-	def create
-	    @reservation = Reservation.new(
-	    	reservation_params.merge!(:reserved_on => (Time.now).to_date,
-	    	 :due_on => 7.days.since(Time.now).to_date,:user_id => session[:user_id]))
+before_action :set_user, only: [:index]
 
-	    if @reservation.save
-	    	find_book
-	      	redirect_to @book
-	      	flash[:success] = "Reservation was created!"
-	    else
-	      render :new
-    	end
-  	end
+before_action :set_book, only: [:create]
 
-	def destroy
-	    @reservation.destroy
-	    redirect_to reservations_path
-	end
+  def index
+    @reservations = @user.reservations.order('created_at desc')
+  end
 
-	def index
-		@reservations = User.find(session[:user_id]).reservations
-	end
+  def overdue
+   @overdueset = Reservation.where( "due_on < ?", Time.zone.now  )
+  end
 
-	def show
-		@reservations = Reservation.order(:due_on)
-	end
+  def show
+   @overdueset = Reservation.where( "due_on < ?", Time.zone.now ).order(:user_id)
+  end
 
-  	private
 
-  	def reservation_params
-    	params.require(:reservation).permit(:book_id)
-    	
+  def destroy
+    Reservation.find( params[ :reservation_id] ).delete
+    redirect_to books_url, notice: 'Book was removed from Reservation'
+
+  end
+
+
+  def create
+    today = Time.zone.now
+    tomorrow = today + 7.days
+
+    @reservation = @book.reservations.new( book_id: params[:book_id], user_id: session[:user_id],reserved_on: today, due_on: tomorrow )
+
+    if @reservation.save
+       redirect_to reservations_path @user , notice: 'Reservation saved!'
+    else
+       redirect_to books_index_path @user, notice: 'Reservation failed!'
     end
+  end
 
-    def find_book
-    	@book= Book.find(@reservation.book_id)
-    end
+private
 
-    def set_reservation
-    	@reservation = Reservation.find(params[:id])
-  	end
+  def set_user
+    @user = User.find(session[:user_id])
+  end
 
+  def set_book
+        @book = Book.find(params[:book_id])
+  end
 end

@@ -25,6 +25,8 @@ GmuLibraryProject::Application.routes.draw do
     get 'page/:page', :action => :index, :on => :collection
   end
 
+ post "/reservations/return" => "reservations#destroy"
+
   root 'sessions#new' 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -3,15 +3,20 @@
 <ol>
 <% @reservations.each do |reservation| %>
 	<li>
-		<%= image_tag reservation.book.image_cover_url, :class =>'all_books' %>
-		<%= reservation.book.title %>
+<div>
+    <div style="width:100px;float:left;display:inline-block;height:130px">
+       <%= image_tag reservation.book.image_cover_url, :class =>'all_books' %>
+    </div>
+    <div style="margin-left:200px; height:130px">
+       <%= reservation.book.title %> <br />
+       Reserved - <%= reservation.reserved_on.to_s(:short) %> <br />
+       Due - <%= reservation.due_on.to_s(:short) %><br>
+		<%= button_to 'Return book', reservations_return_path(reservation_id: reservation.id),  method: :delete,  data: {confirm: 'Are you sure?' } %>
 
-		 Reserved - <%= reservation.reserved_on.to_s(:short) %> 
-		 Due - <%= reservation.due_on.to_s(:short) %>
+    </div>
+</div>
 
-		   <%= button_to 'Return book', reservations_path_destory(reservation) , 
-                 data: {confirm: 'Are you sure?' } %>
+
 	</li>
 	<% end %>
 </ol>
-

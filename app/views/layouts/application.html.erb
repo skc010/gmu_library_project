@@ -7,6 +7,13 @@
 	<%= csrf_meta_tags%>
 </head>
 <body>
+
+	  <div id="search">
+        <%= render :partial => 'books/search' %>
+     </div>
+
+
+
 	<div class="container">
 		<%= render'/layouts/header' %>
 	</div>
@@ -18,7 +25,12 @@
 		<div class="col-xs-3">
 			<%= render'/layouts/sidebar' %>
 		</div>
+
 	</div>
+
+
+
 	<%= render'/layouts/footer' %>
+
 </body>
 </html>

@@ -1,7 +1,18 @@
 class BooksController < ApplicationController
 before_action :set_book, only: [:show, :edit, :update, :destroy]
+ #  def index
+ #    @books = Book.order(:title).page(params[:page])
+ #  end
+
+	# def search
+ #       @books = Book.search(params[:search]).order(:title)
+ #    end
   def index
-    @books = Book.order(:title).page(params[:page])
+    if params[:search]
+      @books = Book.search(params[:search]).order(:title).page(params[:page])
+    else
+      @books = Book.order(:title).page(params[:page])
+    end
   end
 
 
@@ -41,6 +52,8 @@ before_action :set_book, only: [:show, :edit, :update, :destroy]
 	def get_authors 
 		@author_list = Author.all
 	end
+
+
 
 private
     def set_book

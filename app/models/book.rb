@@ -13,4 +13,16 @@ class Book < ActiveRecord::Base
 	belongs_to :author
 	has_many :reservations, dependent: :destroy
 
+	# def self.search(search)
+ #      search_condition = "%" + search + "%"
+ #      find(:all, :conditions => ['title LIKE ?', search_condition])
+ #    end
+
+     def self.search(search)
+        # where(:title, search) #exact match
+        where("title like ? OR isbn IS ?", "%#{search}%", "#{search}")
+         # phrase = "%" + search + "%"
+         # find(:all, :conditions => ['title LIKE ? OR isbn IS ?', phrase, search])
+    end
+
 end

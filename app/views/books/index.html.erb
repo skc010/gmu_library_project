@@ -1,4 +1,9 @@
-<h1>All Books</h1>
+
+<% if params[:search] %>
+	<%= render 'search_results' %>
+<% else %>
+	<%= render 'all_books' %>
+<% end %>
 <%= page_entries_info @books %>
 <ol>
 	<% @books.each do |book| %>

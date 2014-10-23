@@ -1,7 +1,7 @@
 <% if session[:user_id] %>
-<%= form_tag(books_path, :action => 'search', :method => "get") do %>
-   <%= text_field_tag :search, params[:search], :id => 'search_field', placeholder: "Search Books" %>
-   <%= submit_tag "Search", :name => nil %> 
+<%= form_tag(books_path, :action => 'search', :method => "get", class: "form-search") do %>
+   <%= text_field_tag :search, params[:search], :id => 'search_field', placeholder: "Search Books", class: "input-medium search-query" %>
+   <%= submit_tag "Search", :name => nil, class: "btn btn-info" %> 
 
   <% end %>
  <% end %>

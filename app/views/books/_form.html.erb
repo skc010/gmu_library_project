@@ -1,18 +1,20 @@
-<%= form_for(@book) do |f| %>
-	<%= render 'shared/validation_errors', object: @book %>
-
-	<p><label><%= f.label :title %></label> <%= f.text_field :title %></p>
-	<p><label><%= f.label :author_id %></label> <%= f.select :author_id, get_authors %></p>
-	<p><label><%= f.label :isbn %></label> <%= f.text_field :isbn %> </p>
-	<p><label><%= f.label :abstract %></label>  <%= f.text_area :abstract %></p>
-	<p><label><%= f.label :pages %></label>  <%= f.text_field :pages %> </p>
-	<p><label><%= f.label :total_in_library %></label>  <%= f.text_field :total_in_library %> </p>
-	<p><label><%= f.label :genre %></label> <%= f.select :genre, Book::GENRES, { prompt: "Pick one" } %></p>
-	<p><label><%= f.label :published_on %></label>  <%= f.date_select :published_on %></p>
-	<p><label><%= f.label :image_cover_url %></label>  <%= f.text_field :image_cover_url %> </p>
-	<p>
-		<%= f.submit %>
-		<%= link_to "<button>Cancel</button>".html_safe, books_path, :id => "button_id", :class => "button_class" %>
-	</p>
-<% end %>
-
+<div class="row-fluid">
+  <div class="span4 well">
+	<%= form_for @book, :html => {:class => "form-horizontal center"} do |f| %>
+		<%= render 'shared/validation_errors', object: @book %>
+		<p><%= f.label :title, class: "control-label" %>: <%= f.text_field :title %></p>
+		<p><%= f.label :author_id, class: "control-label" %>: <%= f.select :author_id, get_authors %></p>
+		<p><%= f.label :isbn, class: "control-label"  %>: <%= f.text_field :isbn %> </p>
+		<p><%= f.label :abstract, class: "control-label" %>: <%= f.text_area :abstract, rows:5, cols: 50  %></p>
+		<p><%= f.label :pages, class: "control-label"  %>: <%= f.text_field :pages %> </p>
+		<p><%= f.label :total_in_library, class: "control-label" %>: <%= f.text_field :total_in_library %> </p>
+		<p><%= f.label :genre, class: "control-label" %>: <%= f.select :genre, Book::GENRES, { prompt: "Pick one" } %></p>
+		<p><%= f.label :published_on, class: "control-label" %>: <%= f.date_select :published_on %></p>
+		<p><%= f.label :image_cover_url, class: "control-label" %>:  <%= f.text_field :image_cover_url %> </p>
+		<div class="form-actions">
+			<%= f.submit%>
+			<%= link_to "<button>Cancel</button>".html_safe, books_path, :id => "button_id", :class => "button_class" %>
+		</div>
+	<% end %>
+  </div>
+</div>

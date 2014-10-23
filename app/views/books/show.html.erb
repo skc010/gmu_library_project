@@ -13,15 +13,16 @@
 	<p><label>Author:</label> <%= link_to @book.author.name, author_path(@book.author) %></p>
 	<p><label>Genre:</label> <%= @book.genre %></p>
 	<p><label>Pages:</label> <%= @book.pages %></p>
-	<p><label>Published On</label> <%= @book.published_on.strftime('%B %d, %Y') %></p>
+	<p><label>Published On:</label> <%= @book.published_on.strftime('%B %d, %Y') %></p>
 	<p><label>Available to Reserve:</label> <%= available_to_reserve(@book) %></p>
 </article>
 
 <% if session[:is_admin] %>
-	<%= link_to 'Edit', edit_book_path(@book) %>
-	<%= button_to 'Delete', @book, method: :delete, data: {confirm:'Are you sure?'} %>
+<p>
+	<%= link_to 'Edit', edit_book_path(@book),  class:"btn btn-primary" %>
+	<%= button_to 'Delete', @book, method: :delete, data: {confirm:'Are you sure?'}, class:"btn btn-danger" %>
+</p>
 <% end %>
-  
 
 
 

@@ -1,19 +1,12 @@
 <% if session[:user_id] %>
-<style>
-.center {
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;
-    background-color: #b0e0e6;
-}
-</style>
+
 
 <div id="sidebar">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h3 class="panel-title">Navigation</h3>
+			<h3 class="panel-title">Things to do ...</h3>
 		</div>
-		<div class="btn-group-vertical">
+		<div class="panel-body btn-group-vertical">
 		
 		    <%= link_to(books_path, class: "btn btn-default btn-small") do %>
             	<i class="glyphicon glyphicon-list"></i> All Books
@@ -23,7 +16,7 @@
             	<i class="glyphicon glyphicon-user"></i> Authors
           	<% end %>
           	<br />
-          	<%= link_to(authors_path, class: "btn btn-default btn-small") do %>
+          	<%= link_to(reservations_path, class: "btn btn-default btn-small") do %>
             	<i class="glyphicon glyphicon-tasks"></i> My Reservations
           	<% end %>
 			
@@ -33,7 +26,7 @@
 	            	<i class="glyphicon glyphicon-book"></i> New Book
 	          	<% end %>
 	          	<br />
-	          	<%= link_to(new_book_path, class: "btn btn-default btn-small") do %>
+	          	<%= link_to(reservations_overdue_path, class: "btn btn-default btn-small") do %>
 	            	<i class="glyphicon glyphicon-download-alt"></i> Overdue Books
 	          	<% end %>
 	          	<br />

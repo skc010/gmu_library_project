@@ -16,6 +16,16 @@ module BooksHelper
 		total_available > 0
 	end
 
+	def you_currently_checked_out_book?(book)
+
+		any_reserved_book_with_book_id_user_id = Reservation.where("book_id=? and user_id=?", book.id, session[:user_id]).all
+    	if any_reserved_book_with_book_id_user_id.nil? || any_reserved_book_with_book_id_user_id.count > 0
+     		true
+   		else
+     		false
+    	end
+	end
+
 	def available_to_reserve(book)
   		available_to_reserve = book.total_in_library - book.reservations.size
   	end

@@ -1,0 +1,22 @@
+<h1>My Reservations</h1>
+
+<ol>
+<% @reservations.each do |reservation| %>
+	<li>
+<div>
+    <div style="width:100px;float:left;display:inline-block;height:130px">
+       <%= image_tag reservation.book.image_cover_url, :class =>'all_books' %>
+    </div>
+    <div style="margin-left:200px; height:130px">
+       <%= reservation.book.title %> <br />
+       Reserved - <%= reservation.reserved_on.to_s(:short) %> <br />
+       Due - <%= reservation.due_on.to_s(:short) %><br>
+		<%= button_to 'Return book', reservations_return_path(reservation_id: reservation.id),  method: :delete,  data: {confirm: 'Are you sure?' } %>
+
+    </div>
+</div>
+
+
+	</li>
+	<% end %>
+</ol>

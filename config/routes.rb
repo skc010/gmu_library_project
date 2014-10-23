@@ -31,7 +31,9 @@ GmuLibraryProject::Application.routes.draw do
   #   get 'page/:page', :action => :index, :on => :collection
   # end
 
-  get "reservations/overdue"
+  get "/reservations/overdue" => "reservations#show"
+
+  post "/reservations/return" => "reservations#destroy"
 
   root 'sessions#new' 
 

@@ -38,7 +38,7 @@ tolkien = Author.where(name:'J. R. R. Tolkien')
                 	Silmarillion.", awards: '1957 International Fantasy Award for Fiction', image_url: 'http://upload.wikimedia.org/wikipedia/commons/b/b4/Tolkien_1916.jpg')
 Book.where(isbn:'9780544003415')
 	.first_or_create!(title:'The Lord of the Rings', abstract:'This is where the short summary for lord of the rings goes', 
-	pages:1216, genre:'fantasy', image_cover_url:'http://2.bp.blogspot.com/-iVwMbMPsAK4/TmyFH-MLXsI/AAAAAAAABwU/9RW48qLcroc/s1600/the-lord-of-the-rings-the-fellowship-of-the-ring.jpg',  published_on:Time.parse('29-07-1954'), total_in_library:2, author:tolkien)
+	pages:1216, genre:'fantasy', image_cover_url:'http://2.bp.blogspot.com/-iVwMbMPsAK4/TmyFH-MLXsI/AAAAAAAABwU/9RW48qLcroc/s1600/the-lord-of-the-rings-the-fellowship-of-the-ring.jpg',  published_on:Time.parse('29-07-1954'), total_in_library:1, author:tolkien)
 Book.where(isbn:'9780582186552')
 	.first_or_create!(title:'The Hobbit', abstract:'This is where the short summary for The Hobbit goes', 
 	pages:1216, genre:'fantasy', image_cover_url:'http://img1.wikia.nocookie.net/__cb20130704001522/lotr/images/9/94/The-hobbit-book-cover1.jpg',  published_on:Time.parse('21-09-1937'), total_in_library:0, author:tolkien)
